@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: flask-sample
+  labels:
+    app: flask-sample
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: flask-sample
+  template:
+    metadata:
+      labels:
+        app: flask-sample
+    spec:
+      containers:
+        - name: flask-sample
+          image: akku306/flask-sample:latest
+          ports:
+            - containerPort: 5000
+      imagePullSecrets:
+        - name: dockerstore
