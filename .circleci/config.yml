@@ -3,6 +3,26 @@ jobs:
   build:
     docker: 
       - image: python:alpine3.7 # the primary container, where your job's commands are run
+    working_directory: ./Flask_Docker_Demo
     steps:
       - checkout # check out the code in the project directory
       - run: echo "hello world" # run the `echo` command
+      - run: 
+          name: list directories
+          command: ls
+      - run:
+          name: install dependencies
+          command: python3 -m venv venv
+            . venv/bin/activate
+            pip install -r requirements.txt
+      - save_cache:
+          paths:
+            - ./venv
+          key: v1-dependencies-{{ checksum "requirements.txt" }}
+      - run:
+          name: run server
+          command: |
+            . venv/bin/activate
+            python Flask_Code.py
+          
+      
