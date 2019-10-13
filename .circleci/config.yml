@@ -22,7 +22,7 @@ jobs:
           command: docker info
       - run: 
           name: docker login
-          command: docker login $docker_user $docker_password
+          command: docker login -u $docker_user -p $docker_password
       - run: 
           name: create docker image
           command: docker build -t $IMAGE_NAME:latest .
