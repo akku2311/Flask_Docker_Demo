@@ -3,6 +3,8 @@ jobs:
   build:
     environment:
       IMAGE_NAME: akku306/flask_docker_image
+    machine:
+      image: ubuntu-1804
     working_directory: ./Flask_Docker_Demo
     steps:
       - checkout
