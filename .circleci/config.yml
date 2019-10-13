@@ -9,25 +9,14 @@ jobs:
     steps:
       - checkout # check out the code in the project directory
       - setup_remote_docker
-      - run: echo "hello world" # run the `echo` command
-      - run: 
-          name: list directories
-          command: ls
       - run:
-          name: install dependencies
-          command: pip install -r requirements.txt
-      - save_cache:
-          paths:
-            - ./venv
-          key: v1-dependencies-{{ checksum "requirements.txt" }}
+          name: create docker image
+          command: docker build -t akku306/flask_docker_image:lastest Dockerfile .
       - run:
           name: push image to docker hub
           command: |
             docker login $docker_user $docker_password
             docker push akku306/flask_docker_image:latest
-      - run:
-          name: run server
-          command: python Flask_Code.py
 workflows:
   version: 2
   build-master:
