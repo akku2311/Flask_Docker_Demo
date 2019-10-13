@@ -11,7 +11,7 @@ jobs:
       - setup_remote_docker
       - run:
           name: create docker image
-          command: docker build -t akku306/flask_docker_image:lastest .
+          command: docker build -t $IMAGE_NAME:lastest .
       - run:
           name: push image to docker hub
           command: |
