@@ -18,6 +18,9 @@ jobs:
             - ./venv
           key: v1-dependencies-{{ checksum "requirements.txt" }}
       - run:
+          name: Install jFrog CLI
+          command: curl -fL https://getcli.jfrog.io | sh
+      - run:
           name: upload to bintray
           command: |
             ./jfrog rt config --url https://dl.bintray.com/akashorg/flask_circle_ci --user akash306 --apikey d48f02dffa6e4180b251a4b1aad36df452cef3fb --interactive=false
