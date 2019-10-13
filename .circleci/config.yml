@@ -19,7 +19,7 @@ jobs:
             sudo mv /tmp/docker/* /usr/bin
       - run: 
           name: Check docker version
-          command: docker --info
+          command: docker info
       - run: 
           name: docker login
           command: docker login $docker_user $docker_password
