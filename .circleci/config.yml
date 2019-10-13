@@ -31,7 +31,7 @@ jobs:
             docker login akku306 41cf3981-2426-4844-97aa-ce009a4a683a
             docker push ${IMAGE_NAME}:latest
  workflows:
-  version: 2.1
+  version: 2
   build-master:
     jobs:
       - build:
