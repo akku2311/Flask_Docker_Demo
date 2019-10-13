@@ -19,11 +19,11 @@ jobs:
           paths:
             - ./venv
           key: v1-dependencies-{{ checksum "requirements.txt" }}
-      - run:
-          name: push image to docker hub
-          command: |
-            docker login akku306 41cf3981-2426-4844-97aa-ce009a4a683a
-            docker push ${IMAGE_NAME}:latest
+      # - run:
+          # name: push image to docker hub
+          # command: |
+            # docker login ${docker_user} ${docker_pass}
+            # docker push ${IMAGE_NAME}:latest
       - run:
           name: run server
           command: python Flask_Code.py
@@ -35,5 +35,3 @@ workflows:
           filters:
             branches:
               only: master
-          
-      
