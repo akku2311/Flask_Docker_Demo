@@ -9,7 +9,7 @@ jobs:
     steps:
       - run: echo "hello world" # run the `echo` command
       - run:
-	  name: install dependencies
+      	  name: install dependencies
 	  command: pip install -r requirements.txt
       - save_cache:
           paths:
