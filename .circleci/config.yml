@@ -30,14 +30,19 @@ jobs:
           command: |
             docker login akku306 41cf3981-2426-4844-97aa-ce009a4a683a
             docker push ${IMAGE_NAME}:latest
-#       - run:
-#           name: upload to bintray
-#           command: |
-#             ./jfrog rt config --url https://dl.bintray.com/akashorg/flask_circle_ci --user akash306 --apikey d48f02dffa6e4180b251a4b1aad36df452cef3fb --interactive=false
-#             ./jfrog rt u flask_docker_image:0.0 akashorg-docker-flask_circle_ci.bintray.io --build-name=flask_docker_image --build-number=1
-#             ./jfrog rt bce flask_docker_image 1  # collects all environment variables on the agent
-#             ./jfrog rt bp flask_docker_image 1  # attaches ^^ to the build in artifactory
-      
-      
+ workflows:
+  version: 2.1
+  build-master:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only: master
+      - publish-latest:
+          requires:
+            - build
+          filters:
+              branches:
+                only: master 
           
       
