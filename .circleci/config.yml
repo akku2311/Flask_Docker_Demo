@@ -33,7 +33,7 @@ jobs:
     environment:
       IMAGE_NAME: akku306/flask_docker_image
     docker:
-      image: akku306/flask_docker_image:latest
+      - image: akku306/flask_docker_image:latest
     steps:
       - setup_remote_docker
       - run: 
