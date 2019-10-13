@@ -24,7 +24,7 @@ jobs:
           command: python Flask_Code.py
   publish-latest: 
     steps:
-      executor: docker-publisher
+    executor: docker-publisher
       - run:
           name: push image to docker hub
           command: |
