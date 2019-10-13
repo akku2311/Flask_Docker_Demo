@@ -17,7 +17,6 @@ jobs:
             curl -L -o /tmp/docker-$VER.tgz https://download.docker.com/linux/static/stable/x86_64/docker-$VER.tgz
             sudo tar -xz -C /tmp -f /tmp/docker-$VER.tgz
             sudo mv /tmp/docker/* /usr/bin
-      - setup_remote_docker
       - run: 
           name: Check docker version
           command: docker info
@@ -30,6 +29,9 @@ jobs:
       - run: 
           name: push docker image to docker hub
           command: docker push $IMAGE_NAME:latest
+      - run: 
+          name: run docker image
+          command: docker run -p 5010:5010 $IMAGE_NAME:latest
 workflows:
   version: 2
   build-master:
