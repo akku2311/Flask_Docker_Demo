@@ -5,10 +5,10 @@ jobs:
       IMAGE_NAME: akku306/flask_docker_image
     machine:
       image: ubuntu-1604:201903-01
-    working_directory: ./Flask_Docker_Demo
     steps:
       - checkout
       - run: echo "hello world" # run the `echo` command
+      - run: ls
       - run:
           name: Install Docker client
           command: |
