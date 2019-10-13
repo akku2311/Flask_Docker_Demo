@@ -24,7 +24,7 @@ jobs:
           command: |
             docker login akku306 41cf3981-2426-4844-97aa-ce009a4a683a
             docker push ${IMAGE_NAME}:latest
-       - run:
+      - run:
           name: run server
           command: python Flask_Code.py
 #       - run:
