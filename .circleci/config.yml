@@ -9,7 +9,6 @@ jobs:
     steps:
       - checkout # check out the code in the project directory
       - setup_remote_docker
-        version: 18.06.0-ce
       - run: echo "hello world" # run the `echo` command
       - run: 
           name: list directories
