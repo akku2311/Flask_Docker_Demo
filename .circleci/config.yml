@@ -30,6 +30,10 @@ jobs:
           name: push docker image to docker hub
           command: docker push $IMAGE_NAME:latest
   run_docker_image:
+    environment:
+      IMAGE_NAME: akku306/flask_docker_image
+    machine:
+      image: docker
     steps:
       - setup_remote_docker
       - run: 
