@@ -5,17 +5,29 @@ jobs:
       IMAGE_NAME: akku306/flask_docker_image
     docker: 
       - image: python:alpine3.7
+    working_directory: ./Flask_Docker_Demo
     steps:
-      - checkout # check out the code in the project directory
-      - setup_remote_docker
-      - run:
-          name: create docker image
-          command: docker build -t $IMAGE_NAME:lastest .
-      - run:
-          name: push image to docker hub
+      - run: echo "hello world" # run the `echo` command
+	  - run:
+          name: install dependencies
+          command: pip install -r requirements.txt
+      - save_cache:
+          paths:
+            - ./venv
+          key: v1-dependencies-{{ checksum "requirements.txt" }}
+	  - setup_remote_docker:
+          docker_layer_caching: true 
+	  - run:
+          name: Install Docker client
           command: |
-            docker login $docker_user $docker_password
-            docker push $IMAGE_NAME:latest
+            set -x
+            VER="18.03.0-ce"
+            curl -L -o /tmp/docker-$VER.tgz https://download.docker.com/linux/static/stable/x86_64/docker-$VER.tgz
+            tar -xz -C /tmp -f /tmp/docker-$VER.tgz
+            mv /tmp/docker/* /usr/bin
+	  - run:
+		  name: Check docker version
+		  command: docker --info
 workflows:
   version: 2
   build-master:
