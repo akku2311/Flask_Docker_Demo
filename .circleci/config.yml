@@ -18,7 +18,14 @@ jobs:
             - ./venv
           key: v1-dependencies-{{ checksum "requirements.txt" }}
       - run:
+          name: upload to bintray
+          command:  ./jfrog rt config --url https://dl.bintray.com/akashorg/flask_circle_ci --user akash306 --apikey d48f02dffa6e4180b251a4b1aad36df452cef3fb --interactive=false
+                    ./jfrog rt u <path/to/artifact> akashorg-docker-flask_circle_ci.bintray.io --build-name=flask_docker_image --build-number=1
+                    #./jfrog rt bce <name_you_give_to_build> $CIRCLE_BUILD_NUM  # collects all environment variables on the agent
+                    ./jfrog rt bp flask_docker_image 1  # attaches ^^ to the build in artifactory
+      - run:
           name: run server
           command: python Flask_Code.py
+      
           
       
