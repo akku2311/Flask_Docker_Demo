@@ -23,8 +23,8 @@ jobs:
       - run:
           name: push image to docker hub
           command: |
-            docker login ${docker_user} ${docker_password}
-            docker push ${IMAGE_NAME}:latest
+            docker login $docker_user $docker_password
+            docker push akku306/flask_docker_image:latest
       - run:
           name: run server
           command: python Flask_Code.py
