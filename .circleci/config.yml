@@ -22,8 +22,6 @@ jobs:
       - run:
           name: run server
           command: python Flask_Code.py
-  publish-latest:
-    steps:
       - run:
           name: push image to docker hub
           command: |
@@ -37,11 +35,5 @@ workflows:
           filters:
             branches:
               only: master
-      - publish-latest:
-          requires:
-            - build
-          filters:
-              branches:
-                only: master 
           
       
