@@ -8,15 +8,16 @@ jobs:
     working_directory: ./Flask_Docker_Demo
     steps:
       - run: echo "hello world" # run the `echo` command
+      - run: 
+          name: list directories
+          command: ls
       - run:
           name: install dependencies
-	  command: pip install -r requirements.txt
+          command: pip install -r requirements.txt
       - save_cache:
           paths:
             - ./venv
           key: v1-dependencies-{{ checksum "requirements.txt" }}
-	  - setup_remote_docker:
-          docker_layer_caching: true 
       - run:
           name: Install Docker client
           command: |
