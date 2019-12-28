@@ -1,7 +1,6 @@
-### Small version of Python ###
+# Small version of Python #
 FROM python:alpine3.7
-EXPOSE 5000
-#EXPOSE 5000
+EXPOSE 5010
 COPY . /Flask_Docker_Demo
 WORKDIR /Flask_Docker_Demo
 #!/usr/bin/env python3
