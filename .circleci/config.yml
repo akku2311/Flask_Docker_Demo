@@ -10,11 +10,12 @@ jobs:
           run: dir  
 
 workflows:
-build-master:
-  jobs:
-    - build_pyinstaller_executable:
-        filters:
-          branches:
-            only: master
+  version: 2.1
+  build-master:
+    jobs:
+      - build_pyinstaller_executable:
+          filters:
+            branches:
+              only: master
 
             
