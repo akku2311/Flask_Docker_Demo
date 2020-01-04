@@ -1,8 +1,9 @@
 version: 2.1
+orbs:
+    win: circleci/windows@2.2.0
 jobs:
   build_pyinstaller_executable:
-    machine:
-      image: windows-default
+    executor: windows-default
     steps:
       - checkout
       - run: 
