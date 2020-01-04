@@ -7,7 +7,7 @@ jobs:
       - checkout
       - run: 
           name: Check Code availability
-          run: dir  
+          command: dir  
 
 workflows:
   version: 2
