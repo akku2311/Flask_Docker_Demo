@@ -38,7 +38,7 @@ jobs:
           command: |
             cd dist
             dir
-            curl.exe --upload-file Flask_Code.zip -uakash306:$api_key https://api.bintray.com/content/akashorg/Flask_Project_Executable/Flask_Zip_File/0.0/FirstZip
+            curl.exe --upload-file Flask_Code.zip -uakash306:54d5c48cdccac70c1543d0dabe786fbc8956f9d9 https://api.bintray.com/content/akashorg/Flask_Project_Executable/Flask_Zip_File/0.0/FirstZip
 workflows:
   version: 2
   build-master:
