@@ -16,12 +16,18 @@ jobs:
           name: Install Dependency
           command: |
             python -m venv flaskvenv
-            . /flaskvenv/bin/activate
+            cd /flaskvenv/Scripts/ 
+            activate
+            cd ..
+            cd ..
             pip install -r requirements.txt
       - run:
           name: Create Pyinstaller Setup
           command: |
-            . /flaskvenv/bin/activate
+            cd /flaskvenv/Scripts/ 
+            activate
+            cd ..
+            cd ..
             pyinstaller Flask_Code.py
       - run: 
           name: Check the Directory
