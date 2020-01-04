@@ -8,7 +8,10 @@ jobs:
       - checkout
       - run: 
           name: Check Code availability
-          command: dir  
+          command: dir
+      - run: 
+          name: Check Python Version
+          command: python --version
 
 workflows:
   version: 2
