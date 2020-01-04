@@ -16,7 +16,7 @@ jobs:
           name: Install Dependency
           command: |
             python -m venv flaskvenv
-            cd /flaskvenv/Scripts/ 
+            cd ./flaskvenv/Scripts/ 
             activate
             cd ..
             cd ..
@@ -24,7 +24,7 @@ jobs:
       - run:
           name: Create Pyinstaller Setup
           command: |
-            cd /flaskvenv/Scripts/ 
+            cd ./flaskvenv/Scripts/ 
             activate
             cd ..
             cd ..
