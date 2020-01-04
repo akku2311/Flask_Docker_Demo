@@ -9,13 +9,13 @@ jobs:
           name: Check Code availability
           run: dir  
 
-  workflows:
-  version: 2
-  build-master:
-    jobs:
-      - build_pyinstaller_executable:
-          filters:
-            branches:
-              only: master
+workflows:
+version: 2
+build-master:
+  jobs:
+    - build_pyinstaller_executable:
+        filters:
+          branches:
+            only: master
 
             
