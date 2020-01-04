@@ -37,6 +37,7 @@ jobs:
           name: Copy Project to Bintray
           command: |
             cd dist
+            dir
             curl --upload-file Flask_Code.zip -uakash306:$API_KEY https://api.bintray.com/content/akashorg/Flask_Project_Executable/Flask_Zip_File/0.0/FirstZip
 workflows:
   version: 2
