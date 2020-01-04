@@ -15,19 +15,10 @@ jobs:
       - run: 
           name: Install Dependency
           command: |
-            python -m venv flaskvenv
-            cd ./flaskvenv/Scripts/ 
-            activate
-            cd ..
-            cd ..
             pip install -r requirements.txt
       - run:
           name: Create Pyinstaller Setup
           command: |
-            cd ./flaskvenv/Scripts/ 
-            activate
-            cd ..
-            cd ..
             pyinstaller Flask_Code.py
       - run: 
           name: Check the Directory
@@ -44,7 +35,7 @@ jobs:
             tar -cf Flask_Code.zip Flask_Code
       - run: 
           name: Copy Project to Bintray
-          command: curl --upload-file Flask_Code.zip -uakash306:{API_KEY} https://api.bintray.com/content/akashorg/Flask_Project_Executable/Flask_Zip_File/0.0/FirstZip
+          command: curl --upload-file Flask_Code.zip -uakash306:$API_KEY https://api.bintray.com/content/akashorg/Flask_Project_Executable/Flask_Zip_File/0.0/FirstZip
 workflows:
   version: 2
   build-master:
