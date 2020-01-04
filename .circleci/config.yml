@@ -35,10 +35,13 @@ jobs:
             tar -cf Flask_Code.zip Flask_Code
       - run:
           name:
-          command: |
-            echo $api_key
-            echo ${api_key}
-            echo api_key
+          command: echo $api_key
+      - run:
+          name:
+          command: echo ${api_key}
+      - run:
+          name:
+          command: echo api_key
       - run: 
           name: Copy Project to Bintray
           command: |
