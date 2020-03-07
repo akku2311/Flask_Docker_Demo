@@ -9,6 +9,15 @@ jobs:
       - run: 
           name: Check Code availability
           command: dir
+      - run:
+          name: Download Python in Windows Machine
+          command: |
+            new-object System.Net.WebClient().DownloadFile("https://www.python.org/ftp/python/3.7.3/python-3.7.3.exe", "C:\temp\python.exe")
+          shell: powershell.exe
+      - run:
+          name: Check Executable
+          command: |
+            dir C:\temp\
       - run: 
           name: Check Python Version
           command: python --version
@@ -47,5 +56,3 @@ workflows:
           filters:
             branches:
               only: master
-
-            
