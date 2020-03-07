@@ -12,6 +12,7 @@ jobs:
       - run:
           name: Download Python in Windows Machine
           command: |
+            $ProgressPreference = "SilentlyContinue"
             Invoke-WebRequest https://www.python.org/ftp/python/3.7.3/python-3.7.3.exe -OutFile python.exe
           shell: powershell.exe
       - run:
