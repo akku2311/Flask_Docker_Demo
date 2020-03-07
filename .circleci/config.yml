@@ -13,12 +13,13 @@ jobs:
           name: Download Python in Windows Machine
           command: |
             $ProgressPreference = "SilentlyContinue"
-            Invoke-WebRequest https://www.python.org/ftp/python/3.7.3/python-3.7.3.exe -OutFile python.exe
+            Invoke-WebRequest https://www.python.org/ftp/python/3.8.0/python-3.8.0.exe -OutFile python.exe
           shell: powershell.exe
       - run:
-          name: Check Executable
+          name: Install Python in Windows Machine
           command: |
-            dir
+            python.exe /quiet InstallAllUsers=1 PrependPath=1 Include_test=0 TargetDir=C:\Python38
+            dir C:/
       - run: 
           name: Check Python Version
           command: python --version
