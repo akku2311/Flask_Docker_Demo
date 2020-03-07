@@ -12,12 +12,12 @@ jobs:
       - run:
           name: Download Python in Windows Machine
           command: |
-            Invoke-WebRequest https://www.python.org/ftp/python/3.7.3/python-3.7.3.exe -OutFile C:\tmp\python.exe
+            Invoke-WebRequest https://www.python.org/ftp/python/3.7.3/python-3.7.3.exe -OutFile python.exe
           shell: powershell.exe
       - run:
           name: Check Executable
           command: |
-            dir C:\tmp\
+            dir
       - run: 
           name: Check Python Version
           command: python --version
